@@ -1,0 +1,2 @@
+Create a class that extends stateless Widget.
+Overide the build method with return type as widget.
