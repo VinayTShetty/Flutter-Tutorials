@@ -1,0 +1,22 @@
+
+How to create a statefull widget.
+
+1)Create a class that extends statefull widget.
+2)OverRide createState Method.
+  createState method accepts State Object<> as return type.
+3)Create a class that extends state. (we are use _for private).
+4)OverRide build method.
+
+How to get the updated state of the widget.
+*******************************************
+
+To get the updated state of the widget.
+use  setState(() {}) method.
+
+
+DisAdvantage of StateFull Widget.
+********************************
+When ever we use a setState than entire widget will be build again.
+Which is bad for application which has mulitple widget.
+
+So statefull widget have this drawback.
