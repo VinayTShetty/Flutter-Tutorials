@@ -1,0 +1,14 @@
+Go to the Link :-
+https://pub.dev/packages/provider
+
+1)Add the provider depedency in the pubspec.yaml file.Get pub.To verify the process should finish with exit code 0.
+2)Create a class that with ChangeNotifier.
+  Add getter and setter for that.
+  Add notifylistner for the setter
+3)Create a Provider with global Context.
+4)Create a ChangeProvider Notifier that will accept a provider state.
+
+Important Point:- By Using consumer we can make the Corresponding widget build not the entire Widget tree.
+Without Consumer entire widget will be built.
+
+
