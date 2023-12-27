@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:statemanagement/provider/Counter_Provider.dart';
@@ -14,6 +16,15 @@ class _CounterState extends State<Counter> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    /**
+     *  This should be false.Bcoz ,the init method will be called before the build method.
+     *  if we are providing true,then we lll get an error.
+     *  Reason:- Widget is already listneing but its not build like that.
+     */
+    final countprovider = Provider.of<CountProvider>(context, listen: false); //
+    Timer.periodic(Duration(seconds: 2), (timer) {
+      countprovider.setCounter();
+    });
   }
 
   @override
