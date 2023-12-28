@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:statemanagement/provider/ColorSlider_Provider.dart';
 import 'package:statemanagement/provider/Counter_Provider.dart';
 import 'package:provider/provider.dart';
 import 'package:statemanagement/screen/Counter.dart';
+import 'package:statemanagement/screen/SliderColorChange.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,15 +14,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => CountProvider(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CountProvider()),
+        ChangeNotifierProvider(create: (_) => ColorProvider())
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: Counter(),
+        home: ColorSlider(),
       ),
     );
   }
