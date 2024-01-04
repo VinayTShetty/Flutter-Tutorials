@@ -13,6 +13,9 @@ class FavoriteItemSelected extends StatefulWidget {
 class _FavoriteItemSelectedState extends State<FavoriteItemSelected> {
   @override
   Widget build(BuildContext context) {
+    /**
+     * using Provider instance to get the value.
+     */
     final favoriteProvider = Provider.of<FavoriteItemProvider>(context);
     print("Build Entire Widget ItemSelected Screen");
     return Scaffold(
