@@ -1,0 +1,5 @@
+ValueNotifier.
+
+It can be applied for both stateless and statefull widget.
+Its not same as provider and BLOC have its pros and cons.
+Using ValueListenableBuilder we can build the particular widget.
