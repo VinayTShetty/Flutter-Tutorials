@@ -1,0 +1,15 @@
+How to implement BLOC
+*********************
+
+
+BLOC
+****
+The Events are generated from the User/UI ,
+The BLOC gives the response in the form of states.
+
+
+BLOC Provider:- BLOC Provider provides the BLOC to the Children.
+BLOC Builder:- BLOC builder helps in Re-building the UI
+ BLOC Builder has one Property
+    buildWhen: whenever this buildWhen is true ,then only the widget will be built sucessfully.
+               By default it returnsm true.
