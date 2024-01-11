@@ -13,3 +13,18 @@ BLOC Builder:- BLOC builder helps in Re-building the UI
  BLOC Builder has one Property
     buildWhen: whenever this buildWhen is true ,then only the widget will be built sucessfully.
                By default it returnsm true.
+
+BLOC listner :- This widget will be used to listen to different state that is generated from the BLOC.
+                Based on the states we can generate
+                 Toast
+                 SnackBar
+                 We can navigagte to different screen.
+
+                 Please note:-It will never rebuild the UI/VIew
+
+                 BLOC listner has on more widget.
+
+                 listenWhen :- It will return true or false.
+                 If true listner will be called,
+                 If false listner will not be called.
+
