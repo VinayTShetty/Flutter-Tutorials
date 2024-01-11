@@ -1,5 +1,5 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:statemanagement/counter_bloc/counter_bloc.dart';
 import 'package:statemanagement/counter_bloc/counter_event.dart';
@@ -38,14 +38,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     print("Build Widget");
@@ -57,19 +49,28 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BlocBuilder<CounterBloc, CounterState>(
-              buildWhen: (previous, current) {
-            /**
-                 * Here based on this condition we can do some operation for buildWhen
-                 */
-            print(current.counter.toString());
-            print(previous.counter.toString());
-            return true;
-          }, builder: (context, state) {
-            return Text(
-              state.counter.toString(),
-              style: TextStyle(fontSize: 20),
-            );
+          BlocConsumer<CounterBloc, CounterState>(builder: (context, state) {
+            return Text(state.counter.toString());
+          }, listener: (context, state) {
+            if (state.counter > 5) {
+              final snackBar = SnackBar(
+                /// need to set following properties for best effect of awesome_snackbar_content
+                elevation: 0,
+                behavior: SnackBarBehavior.floating,
+                backgroundColor: Colors.transparent,
+                content: AwesomeSnackbarContent(
+                  title: 'BLOC Consumenr',
+                  message:
+                      'BLOC Consumer doing the operation of Both BLOC listner and BLOC Builder',
+
+                  /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                  contentType: ContentType.success,
+                ),
+              );
+              ScaffoldMessenger.of(context)
+                ..hideCurrentSnackBar()
+                ..showSnackBar(snackBar);
+            }
           }),
           const SizedBox(
             height: 40,

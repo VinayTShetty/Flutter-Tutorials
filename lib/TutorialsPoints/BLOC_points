@@ -13,3 +13,12 @@ BLOC Builder:- BLOC builder helps in Re-building the UI
  BLOC Builder has one Property
     buildWhen: whenever this buildWhen is true ,then only the widget will be built sucessfully.
                By default it returnsm true.
+
+BLOC Consumer :-This widget is used to
+                    a)ReBuild the UI/ Navigate to another activity
+                    b)Display a Dialog/Toast/
+
+If we want to combine the functionality of
+                    BLOC builder
+                    BLOC listner
+                    then we should go for BLOC Consumer.
