@@ -22,3 +22,5 @@ If we want to combine the functionality of
                     BLOC builder
                     BLOC listner
                     then we should go for BLOC Consumer.
+
+BLOC Selector :- BLOC Selector is used to filter the Object based on the current state of the BLOC.

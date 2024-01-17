@@ -49,29 +49,27 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BlocConsumer<CounterBloc, CounterState>(builder: (context, state) {
-            return Text(state.counter.toString());
-          }, listener: (context, state) {
-            if (state.counter > 5) {
-              final snackBar = SnackBar(
-                /// need to set following properties for best effect of awesome_snackbar_content
-                elevation: 0,
-                behavior: SnackBarBehavior.floating,
-                backgroundColor: Colors.transparent,
-                content: AwesomeSnackbarContent(
-                  title: 'BLOC Consumenr',
-                  message:
-                      'BLOC Consumer doing the operation of Both BLOC listner and BLOC Builder',
-
-                  /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
-                  contentType: ContentType.success,
+          BlocSelector<CounterBloc, CounterState, bool>(
+            selector: (state) => state.counter >= 3 ? true : false,
+            builder: (context, state) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      color: state ? Colors.green : Colors.red,
+                      width: 200,
+                      height: 200,
+                    ),
+                    Text(
+                      'Counter Value: ${context.select((CounterBloc bloc) => bloc.state).counter}',
+                      style: TextStyle(fontSize: 18),
+                    )
+                  ],
                 ),
               );
-              ScaffoldMessenger.of(context)
-                ..hideCurrentSnackBar()
-                ..showSnackBar(snackBar);
-            }
-          }),
+            },
+          ),
           const SizedBox(
             height: 40,
           ),
